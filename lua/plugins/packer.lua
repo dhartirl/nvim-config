@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	use({
-		'catppuccin/nvim', 
+		'catppuccin/nvim',
 		as = 'catppuccin',
 		config = function()
 			vim.cmd('colorscheme catppuccin')
@@ -21,13 +21,15 @@ return require('packer').startup(function(use)
 
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
-	use('nvim-treesitter/playground')
+    use('nvim-treesitter/nvim-treesitter-context')
 
 	use('theprimeagen/harpoon')
 
 	use('mbbill/undotree')
 
 	use('tpope/vim-fugitive')
+
+    use('tpope/vim-surround')
 
 	use({
 		'VonHeikemen/lsp-zero.nvim',
@@ -48,4 +50,7 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'},
 		}
 	})
+
+    use('nvim-tree/nvim-web-devicons')
+    use('nvim-tree/nvim-tree.lua')
 end)
