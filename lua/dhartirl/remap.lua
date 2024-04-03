@@ -1,4 +1,5 @@
-vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<leader><Tab>", vim.cmd.NvimTreeOpen)
+vim.keymap.set("n", "<leader><leader><Tab>", vim.cmd.NvimTreeClose)
 
 -- Primeagen - Move lines up/down (visual)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
