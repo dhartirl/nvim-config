@@ -1,3 +1,4 @@
+-- Nvim Tree
 vim.keymap.set("n", "<leader><Tab>", vim.cmd.NvimTreeOpen)
 vim.keymap.set("n", "<leader><leader><Tab>", vim.cmd.NvimTreeClose)
 
@@ -28,13 +29,13 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Primeagen - quick fix nav
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+vim.keymap.set("n", "]e", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "[e", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Primeagen - find/replace current word
 vim.keymap.set("n", "<leader>fr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
 -- Custom - Format file
-vim.keymap.set("n", "<C-f>", "gg=G``zz")
+vim.keymap.set("n", "<C-f>", vim.lsp.buf.format)
