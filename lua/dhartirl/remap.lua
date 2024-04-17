@@ -26,7 +26,7 @@ vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- Primeagen - do not stare directly at Q
-vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "Q", vim.cmd.copen)
 
 -- Primeagen - quick fix nav
 vim.keymap.set("n", "]e", "<cmd>cnext<CR>zz")
