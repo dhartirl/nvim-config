@@ -13,8 +13,8 @@ require("nvim-treesitter.configs").setup({
         ["ac"] = "@class.outer",
         ["ak"] = "@parameter.outer",
         ["ik"] = "@parameter.inner",
-        ["aj"] = "@jsx.outer",
-        ["ij"] = "@jsx.inner",
+        ["ae"] = "@element.outer",
+        ["ie"] = "@element.inner",
         -- You can optionally set descriptions to the mappings (used in the desc parameter of
         -- nvim_buf_set_keymap) which plugins like which-key display
         ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
@@ -31,6 +31,7 @@ require("nvim-treesitter.configs").setup({
       selection_modes = {
         ["@parameter.outer"] = "v", -- charwise
         ["@function.outer"] = "V", -- linewise
+        ["@element.outer"] = "V", -- linewise
         ["@class.outer"] = "<c-v>", -- blockwise
       },
       -- If you set this to `true` (default is `false`) then any textobject is
@@ -47,12 +48,14 @@ require("nvim-treesitter.configs").setup({
     swap = {
       enable = true,
       swap_next = {
+        ["<C-j>"] = "@element.outer",
+        ["<C-l>"] = "@element.inner",
         ["<C-]>"] = "@parameter.inner",
-        ["<C-j>"] = "@jsx.outer",
       },
       swap_previous = {
         ["<C-[>"] = "@parameter.inner",
-        ["<C-k>"] = "@jsx.outer",
+        ["<C-h>"] = "@element.inner",
+        ["<C-k>"] = "@element.outer",
       },
     },
     move = {
@@ -72,11 +75,13 @@ require("nvim-treesitter.configs").setup({
         -- Below example nvim-treesitter's `locals.scm` and `folds.scm`. They also provide highlights.scm and indent.scm.
         ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
         ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
+        ["]e"] = "@element.outer",
       },
       goto_next_end = {},
       goto_previous_start = {
         ["[f"] = "@function.outer",
         ["[t"] = "@open_tag.outer",
+        ["[e"] = "@element.outer",
         -- ["[["] = "@class.outer",
       },
       goto_previous_end = {},
@@ -84,10 +89,8 @@ require("nvim-treesitter.configs").setup({
       -- Use if you want more granular movements
       -- Make it even more gradual by adding multiple queries and regex.
       goto_next = {
-        ["]j"] = "@jsx_element",
       },
       goto_previous = {
-        ["[j"] = "@jsx_element",
       },
     },
   },

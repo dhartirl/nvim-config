@@ -1,6 +1,3 @@
--- Nvim Tree
-vim.keymap.set("n", "<leader><Tab>", vim.cmd.NvimTreeOpen)
-vim.keymap.set("n", "<leader><leader><Tab>", vim.cmd.NvimTreeClose)
 
 -- Primeagen - Move lines up/down (visual)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -39,3 +36,6 @@ vim.keymap.set("n", "<leader>fr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left
 
 -- Custom - Format file
 vim.keymap.set("n", "<C-f>", vim.lsp.buf.format)
+
+-- Custom - Toggle wrap
+vim.keymap.set("n", "<leader><leader>w", "<cmd>set wrap!<CR>")
